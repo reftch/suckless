@@ -67,6 +67,10 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const char *roficmd[] = { "rofi", "-modi", "drun,", "run", "-show", "drun", NULL };
 static const char *volupcmd[]  = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
 static const char *voldowncmd[]  = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
+static const char *volmutecmd[]  = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
+static const char *playernextcmd[]  = { "playerctl", "next", NULL };
+static const char *playerpreviouscmd[]  = { "playerctl", "previous", NULL };
+static const char *playerpausecmd[]  = { "playerctl", "play-pause", NULL };
 
 #include "shiftview.c"
 static Key keys[] = {
@@ -76,6 +80,10 @@ static Key keys[] = {
 	{ MODKEY,             			XK_d, 	   spawn,          {.v = roficmd } },
 	{ 0,							0x1008ff13,spawn,		   {.v = volupcmd } },
 	{ 0,							0x1008ff11,spawn,		   {.v = voldowncmd } },
+	{ 0,							0x1008ff12,spawn,		   {.v = volmutecmd } },
+	{ 0,							0x1008FF16,spawn,		   {.v = playerpreviouscmd } },
+	{ 0,							0x1008FF17,spawn,		   {.v = playernextcmd } },
+	{ 0,							0x1008FF14,spawn,		   {.v = playerpausecmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

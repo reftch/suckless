@@ -3,5 +3,5 @@
 # Dependencies: pamixer
 
 vol=$(pamixer --get-volume)%
-printf "%s" "$vol"
+echo "$vol"
 
