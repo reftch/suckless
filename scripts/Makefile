@@ -18,6 +18,8 @@ install:
 	chmod 755 ${DESTDIR}${PREFIX}/bin/sb-memory
 	cp -f sb-cpu ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/sb-cpu
+	cp -f sb-internet ${DESTDIR}${PREFIX}/bin
+	chmod 755 ${DESTDIR}${PREFIX}/bin/sb-internet
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm-start.sh
@@ -26,5 +28,6 @@ uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/sb-battery
 	rm -f ${DESTDIR}${PREFIX}/bin/sb-memory
 	rm -f ${DESTDIR}${PREFIX}/bin/sb-cpu
+	rm -f ${DESTDIR}${PREFIX}/bin/sb-internet
 
 .PHONY: install uninstall
