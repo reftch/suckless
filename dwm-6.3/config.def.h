@@ -65,29 +65,31 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *roficmd[] = { "rofi", "-modi", "drun,", "run", "-show", "drun", NULL };
-static const char *volupcmd[]  = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
-static const char *voldowncmd[]  = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
-static const char *volmutecmd[]  = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
+
 static const char *playernextcmd[]  = { "playerctl", "next", NULL };
 static const char *playerpreviouscmd[]  = { "playerctl", "previous", NULL };
 static const char *playerpausecmd[]  = { "playerctl", "play-pause", NULL };
-static const char *brightnesupcmd[]  = { "brightnessctl", "set", "+5%", NULL };
-static const char *brightnesdowncmd[]  = { "brightnessctl", "set", "5%-", NULL };
+
+static const char *brightnesupcmd[]  = { "brightnessctl", "set", "+10%", NULL };
+static const char *brightnesdowncmd[]  = { "brightnessctl", "set", "10%-", NULL };
+
+static const char *lockcmd[]  = { "dm-tool", "lock", NULL };
 
 #include "shiftview.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,             			XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,             			XK_d, 	   spawn,          {.v = roficmd } },
-	{ 0,							0x1008ff13,spawn,		   {.v = volupcmd } },
-	{ 0,							0x1008ff11,spawn,		   {.v = voldowncmd } },
-	{ 0,							0x1008ff12,spawn,		   {.v = volmutecmd } },
-	{ 0,							0x1008FF16,spawn,		   {.v = playerpreviouscmd } },
-	{ 0,							0x1008FF17,spawn,		   {.v = playernextcmd } },
-	{ 0,							0x1008FF14,spawn,		   {.v = playerpausecmd } },
-	{ 0,							0x1008FF02,spawn,		   {.v = brightnesupcmd } },
-	{ 0,							0x1008FF03,spawn,		   {.v = brightnesdowncmd } },
+	{ MODKEY,             			    XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,             			    XK_d, 	   spawn,          {.v = roficmd } },
+	{ MODKEY|ShiftMask,             XK_l, 	   spawn,          {.v = lockcmd } },
+	{ 0,							              0x1008ff13,spawn,		       SHCMD("pamixer --allow-boost -i 5; pkill -RTMIN+22 dwmblocks") },
+	{ 0,							              0x1008ff11,spawn,		       SHCMD("pamixer --allow-boost -d 5; pkill -RTMIN+22 dwmblocks") },
+	{ 0,							              0x1008ff12,spawn,		       SHCMD("pamixer --toggle-mute; pkill -RTMIN+22 dwmblocks") },
+	{ 0,							              0x1008FF16,spawn,		       {.v = playerpreviouscmd } },
+	{ 0,							              0x1008FF17,spawn,		       {.v = playernextcmd } },
+	{ 0,							              0x1008FF14,spawn,		       {.v = playerpausecmd } },
+	{ 0,							              0x1008FF02,spawn,		       {.v = brightnesupcmd } },
+	{ 0,							              0x1008FF03,spawn,		       {.v = brightnesdowncmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -95,7 +97,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
+	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY|ShiftMask,             XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
@@ -109,8 +111,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ ControlMask,              	XK_Right,  shiftview,  	   { .i = +1 } },
-	{ ControlMask,              	XK_Left,   shiftview,      { .i = -1 } },
+	{ ControlMask,              	  XK_Right,  shiftview,  	   { .i = +1 } },
+	{ ControlMask,              	  XK_Left,   shiftview,      { .i = -1 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
