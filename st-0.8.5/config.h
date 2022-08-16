@@ -7,6 +7,7 @@
  */
 //static char *font = "Liberation Mono:pixelsize=20:antialias=true:autohint=true";
 static char *font = "monospace:pixelsize=18:antialias=true:autohint=true";
+//static char *font = "monospace:pixelsize=15";
 static int borderpx = 10;
 
 /*

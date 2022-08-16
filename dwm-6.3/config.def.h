@@ -17,10 +17,17 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
+static const unsigned int baralpha = 0xd0;
+static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+};
+static const unsigned int alphas[][3]      = {
+	/*               fg      bg        border     */
+	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
+	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
 /* tagging */
@@ -34,6 +41,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "zoom",     NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -64,7 +72,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *roficmd[] = { "rofi", "-modi", "drun,", "run", "-show", "drun", NULL };
+//static const char *roficmd[] = { "rofi", "-modi", "drun,", "run", "-show", "drun", NULL };
 
 static const char *playernextcmd[]  = { "playerctl", "next", NULL };
 static const char *playerpreviouscmd[]  = { "playerctl", "previous", NULL };
@@ -77,7 +85,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,             			    XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,             			    XK_d, 	   spawn,          {.v = roficmd } },
+	//{ MODKEY,             			    XK_d, 	   spawn,          {.v = roficmd } },
 	{ MODKEY|ShiftMask,             XK_l, 	   spawn,          {.v = lockcmd } },
 	{ 0,							              0x1008ff13,spawn,		       SHCMD("pamixer --allow-boost -i 5; pkill -RTMIN+22 dwmblocks") },
 	{ 0,							              0x1008ff11,spawn,		       SHCMD("pamixer --allow-boost -d 5; pkill -RTMIN+22 dwmblocks") },
