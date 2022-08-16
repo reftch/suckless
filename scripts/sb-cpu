@@ -9,7 +9,7 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-temp=$(sensors | awk '/Core 0/ {print " "  $3}') 
+temperature=$(sensors | awk '/Core 0/ {print " "  $3}') 
 rpm=$(sensors | awk '/fan1/ {print ", " $2 " " $3}')
 
-echo "$temp$rpm"
+echo "$temperature$rpm"

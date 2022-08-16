@@ -1,0 +1,5 @@
+#!/bin/sh
+
+usage=$(top -bn1 | grep Cpu | awk '{print " " $2}')%
+
+echo "$usage"
