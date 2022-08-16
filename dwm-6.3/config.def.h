@@ -10,7 +10,7 @@ static const int horizpadbar        = 10;        /* horizontal padding for statu
 static const int vertpadbar         = 10;        /* vertical padding for statusbar */
 //static const char *fonts[]          = { "monospace:size=10" };
 //static const char *fonts[]          = { "monospace:size=10", "SymbolsNerdFont:size=14:antialias=true:autohint=true" };
-static const char *fonts[]          = { "monospace:size=10", "fontAwesome:size=10", "SymbolsNerdFont:size=14" };
+static const char *fonts[]          = { "monospace:size=10", "fontAwesome:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -70,8 +70,8 @@ static const char *playernextcmd[]  = { "playerctl", "next", NULL };
 static const char *playerpreviouscmd[]  = { "playerctl", "previous", NULL };
 static const char *playerpausecmd[]  = { "playerctl", "play-pause", NULL };
 
-static const char *brightnesupcmd[]  = { "brightnessctl", "set", "+10%", NULL };
-static const char *brightnesdowncmd[]  = { "brightnessctl", "set", "10%-", NULL };
+//static const char *brightnesupcmd[]  = { "brightnessctl", "set", "+10%", NULL };
+//static const char *brightnesdowncmd[]  = { "brightnessctl", "set", "10%-", NULL };
 
 static const char *lockcmd[]  = { "dm-tool", "lock", NULL };
 
@@ -88,8 +88,10 @@ static Key keys[] = {
 	{ 0,							              0x1008FF16,spawn,		       {.v = playerpreviouscmd } },
 	{ 0,							              0x1008FF17,spawn,		       {.v = playernextcmd } },
 	{ 0,							              0x1008FF14,spawn,		       {.v = playerpausecmd } },
-	{ 0,							              0x1008FF02,spawn,		       {.v = brightnesupcmd } },
-	{ 0,							              0x1008FF03,spawn,		       {.v = brightnesdowncmd } },
+	//{ 0,							              0x1008FF02,spawn,		       {.v = brightnesupcmd } },
+	//{ 0,							              0x1008FF03,spawn,		       {.v = brightnesdowncmd } },
+	{ 0,							              0x1008FF02,spawn,		       SHCMD("brightness set +10%; pkill -RTMIN+21 dwmblocks") },
+	{ 0,							              0x1008FF03,spawn,		       SHCMD("brightness set 10%-; pkill -RTMIN+21 dwmblocks") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

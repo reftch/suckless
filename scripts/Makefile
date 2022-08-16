@@ -20,6 +20,8 @@ install:
 	chmod 755 ${DESTDIR}${PREFIX}/bin/sb-cpu
 	cp -f sb-internet ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/sb-internet
+	cp -f sb-brightness ${DESTDIR}${PREFIX}/bin
+	chmod 755 ${DESTDIR}${PREFIX}/bin/sb-brightness
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm-start.sh
@@ -29,5 +31,6 @@ uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/sb-memory
 	rm -f ${DESTDIR}${PREFIX}/bin/sb-cpu
 	rm -f ${DESTDIR}${PREFIX}/bin/sb-internet
+	rm -f ${DESTDIR}${PREFIX}/bin/sb-brightness
 
 .PHONY: install uninstall
