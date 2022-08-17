@@ -1,14 +1,14 @@
 #!/bin/sh
 
+sleep 0.1
 brightness=$(cat /sys/class/backlight/intel_backlight/actual_brightness)
-max_brightness=$(cat /sys/class/backlight/intel_backlight/max_brightness)
 
 if [ "$brightness" -eq 0 ]; then
 	status=""
 else
-	status=$(echo "($brightness/$max_brightness)*100" | bc -l | LANG=C xargs printf " %2.f")
+  status=$(brightnessctl -m | awk '{split($0,a,","); print a[4]}')
 fi
 
 # Prints the info
-echo "$status"
+echo " $status"
 
