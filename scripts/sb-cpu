@@ -10,6 +10,6 @@ case $BLOCK_BUTTON in
 esac
 
 temperature=$(sensors | awk '/Core 0/ {print " "  $3}') 
-rpm=$(sensors | awk '/fan1/ {print ", " $2 " " $3}')
+rpm=$(sensors | awk '/fan1/ {print ", " $2}')
 
 echo "$temperature$rpm"
