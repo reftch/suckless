@@ -10,5 +10,5 @@ const Block blocks[] = {
   BLOCK("sb-cpu",         10,   26),
   BLOCK("sb-internet",    20,    27),
 	BLOCK("sb-battery",     20,    28),
-  BLOCK("sb-date",        60,    29)
+  BLOCK("sb-date",        20,    29)
 };
