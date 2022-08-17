@@ -4,7 +4,6 @@ xset s 300 300
 picom -f &
 nitrogen --restore &
 
-dwmblocks & 
+dwmblocks &
 
 exec /usr/local/bin/dwm > /dev/null
-

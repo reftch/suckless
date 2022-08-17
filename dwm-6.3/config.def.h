@@ -77,8 +77,6 @@ static const char *playerpreviouscmd[]  = { "playerctl", "previous", NULL };
 static const char *playerpausecmd[]  = { "playerctl", "play-pause", NULL };
 
 static const char *lockcmd[]  = { "dm-tool", "lock", NULL };
-//bindsym --release $mod+x exec --no-startup-id import ~/Pictures/screenshots/screenshot-$(date +%d-%b-%Y_%H-%M-%S).png
-
 
 #include "shiftview.c"
 static Key keys[] = {
@@ -87,15 +85,15 @@ static Key keys[] = {
 	{ MODKEY,             			XK_Return, spawn,          {.v = termcmd } },
 	//{ MODKEY,             			    XK_d, 	   spawn,          {.v = roficmd } },
 	{ MODKEY|ShiftMask,             XK_l, 	   spawn,          {.v = lockcmd } },
-	{ 0,							           0x1008ff13,spawn,		       SHCMD("pamixer --allow-boost -i 5; pkill -RTMIN+22 dwmblocks") },
-	{ 0,							           0x1008ff11,spawn,		       SHCMD("pamixer --allow-boost -d 5; pkill -RTMIN+22 dwmblocks") },
-	{ 0,							           0x1008ff12,spawn,		       SHCMD("pamixer --toggle-mute; pkill -RTMIN+22 dwmblocks") },
-	{ 0,							           0x1008FF16,spawn,		       {.v = playerpreviouscmd } },
-	{ 0,							           0x1008FF17,spawn,		       {.v = playernextcmd } },
-	{ 0,							0x1008FF14,spawn,		       {.v = playerpausecmd } },
-	{ 0,							0x1008FF02,spawn,		       SHCMD("brightness set +10%; pkill -RTMIN+21 dwmblocks") },
-	{ 0,							0x1008FF03,spawn,		       SHCMD("brightness set 10%-; pkill -RTMIN+21 dwmblocks") },
-	{ MODKEY,						XK_x,	   spawn,		       SHCMD("import ~/Pictures/screenshots/screenshot-$(date +%d-%b-%Y_%H-%M-%S).png") },
+	{ 0,							0x1008ff13,spawn,		   SHCMD("pamixer --allow-boost -i 5; pkill -RTMIN+22 dwmblocks") },
+	{ 0,							0x1008ff11,spawn,		   SHCMD("pamixer --allow-boost -d 5; pkill -RTMIN+22 dwmblocks") },
+	{ 0,							0x1008ff12,spawn,		   SHCMD("pamixer --toggle-mute; pkill -RTMIN+22 dwmblocks") },
+	{ 0,							0x1008FF16,spawn,		   {.v = playerpreviouscmd } },
+	{ 0,							0x1008FF17,spawn,		   {.v = playernextcmd } },
+	{ 0,							0x1008FF14,spawn,		   {.v = playerpausecmd } },
+	{ 0,							0x1008FF02,spawn,		   SHCMD("brightness set +10%; pkill -RTMIN+21 dwmblocks") },
+	{ 0,							0x1008FF03,spawn,		   SHCMD("brightness set 10%-; pkill -RTMIN+21 dwmblocks") },
+	{ MODKEY,						XK_x,	   spawn,		   SHCMD("import ~/Pictures/screenshots/screenshot-$(date +%d-%b-%Y_%H-%M-%S).png") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -117,8 +115,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ ControlMask,              	  XK_Right,  shiftview,  	   { .i = +1 } },
-	{ ControlMask,              	  XK_Left,   shiftview,      { .i = -1 } },
+	{ ControlMask,              	XK_Right,  shiftview,  	   { .i = +1 } },
+	{ ControlMask,              	XK_Left,   shiftview,      { .i = -1 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
