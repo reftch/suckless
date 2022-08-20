@@ -1,4 +1,4 @@
 #!/bin/sh
 
-echo "^c#F0C674^^d^ $(date '+%b %d (%a) %H:%M')"
+echo "^c#D3869B^^d^ $(date '+%b %d (%a) %H:%M')"
 
