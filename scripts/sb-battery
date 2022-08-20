@@ -10,13 +10,6 @@ notify() {
 	notify-send -i battery -h string:x-canonical-private-synchronous:battery "Battery" "$1" -t 4000
 }
 
-case $BLOCK_BUTTON in
-	1) notify "$(acpi -b | awk -F ': |, ' '{printf "%s\n%s\n", $2, $4}')" ;;
-	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
-esac
-
-#. sb-theme
-
 # Loop through all attached batteries and format the info
 for battery in /sys/class/power_supply/BAT?*; do
 	# If non-first battery, print a space separator.
@@ -24,15 +17,15 @@ for battery in /sys/class/power_supply/BAT?*; do
 
 	capacity="$(cat "$battery/capacity" 2>&1)"
 	if [ "$capacity" -gt 90 ]; then
-		status=" "
+		status=""
 	elif [ "$capacity" -gt 60 ]; then
-		status=" "
+		status=""
 	elif [ "$capacity" -gt 40 ]; then
-		status=" "
+		status=""
 	elif [ "$capacity" -gt 10 ]; then
-		status=" "
+		status=""
 	else
-		status=" "
+		status=""
 	fi
 
 	# Sets up the status and capacity
@@ -51,6 +44,6 @@ for battery in /sys/class/power_supply/BAT?*; do
 	esac
 
 	# Prints the info
-	echo -n "$status" $color
+	echo -n "$status$capacity%" $color
 done && echo
 

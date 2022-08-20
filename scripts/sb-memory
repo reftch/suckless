@@ -1,8 +1,3 @@
 #!/bin/sh
 
-case $BLOCK_BUTTON in
-	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
-esac
-
-#. sb-theme
-echo " $(free --mebi | awk 'NR==2 {printf ("%2.2fGiB\n", ($3 / 1024))}')"
+echo "^c#F0C674^ ^d^$(free --mebi | awk 'NR==2 {printf ("%2.2fGiB\n", ($3 / 1024))}')"

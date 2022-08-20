@@ -3,12 +3,12 @@
 sleep 0.1
 brightness=$(cat /sys/class/backlight/intel_backlight/actual_brightness)
 
-status=" "
-if [ "$brightness" -eq 0 ]; then
-    status=""
-else
-    status+=$(brightnessctl -m | awk '{split($0,a,","); print a[4]}')
-fi
+status="^c#F0C674^  ^d^"
+#if [ "$brightness" -eq 0 ]; then
+#    status=""
+#else
+status+=$(brightnessctl -m | awk '{split($0,a,","); print a[4]}')
+#fi
 
 # Prints the info
 echo "$status"

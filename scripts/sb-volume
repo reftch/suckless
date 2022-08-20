@@ -1,15 +1,7 @@
 #!/bin/sh
 
-case $BLOCK_BUTTON in
-	1) setsid -f "$TERMINAL" -e pulsemixer ;;
-	2) pamixer -t ;;
-	4) pamixer -i 3 ;;
-	5) pamixer -d 3 ;;
-	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
-esac
-
 if [ "$(pamixer --get-mute)" = true ]; then
-	echo " " 1
+	echo " " 1
 	exit
 fi
 
@@ -19,9 +11,9 @@ vol="$(pamixer --get-volume)"
 if [ "$vol" -gt 40 ]; then
 	icon=" "
 elif [ "$vol" -gt 15 ]; then
-	icon=" "
+	icon=" "
 else
-	icon=" "
+	icon=" "
 fi
 
-echo "$icon$vol%"
+echo "^c#D3869B^$icon^d^$vol%"
