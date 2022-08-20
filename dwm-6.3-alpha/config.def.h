@@ -79,52 +79,52 @@ static const char *lockcmd[]  = { "dm-tool", "lock", NULL };
 
 #include "shiftview.c"
 static Key keys[] = {
-	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,             			XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask,             XK_l, 	   spawn,          {.v = lockcmd } },
-	{ 0,							0x1008ff13,spawn,		   SHCMD("pamixer --allow-boost -i 5; pkill -RTMIN+22 dwmblocks") },
-	{ 0,							0x1008ff11,spawn,		   SHCMD("pamixer --allow-boost -d 5; pkill -RTMIN+22 dwmblocks") },
-	{ 0,							0x1008ff12,spawn,		   SHCMD("pamixer --toggle-mute; pkill -RTMIN+22 dwmblocks") },
-	{ 0,							0x1008FF16,spawn,		   {.v = playerpreviouscmd } },
-	{ 0,							0x1008FF17,spawn,		   {.v = playernextcmd } },
-	{ 0,							0x1008FF14,spawn,		   {.v = playerpausecmd } },
-	{ 0,							0x1008FF02,spawn,		   SHCMD("brightness set +10%; pkill -RTMIN+21 dwmblocks") },
-	{ 0,							0x1008FF03,spawn,		   SHCMD("brightness set 10%-; pkill -RTMIN+21 dwmblocks") },
-	{ MODKEY,						XK_x,	   spawn,		   SHCMD("import ~/Pictures/screenshots/screenshot-$(date +%d-%b-%Y_%H-%M-%S).png") },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
-	{ MODKEY|ShiftMask,             XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ ControlMask,              	XK_Right,  shiftview,  	   { .i = +1 } },
-	{ ControlMask,              	XK_Left,   shiftview,      { .i = -1 } },
-	TAGKEYS(                        XK_1,                      0)
-	TAGKEYS(                        XK_2,                      1)
-	TAGKEYS(                        XK_3,                      2)
-	TAGKEYS(                        XK_4,                      3)
-	TAGKEYS(                        XK_5,                      4)
-	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_e,      quit,           {0} },
+    /* modifier                     key        function        argument */
+    { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+    { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+    { MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockcmd } },
+    { 0,                            0x1008ff13,spawn,          SHCMD("pamixer --allow-boost -i 5; pkill -RTMIN+22 dwmb>
+    { 0,                            0x1008ff11,spawn,          SHCMD("pamixer --allow-boost -d 5; pkill -RTMIN+22 dwmb>
+    { 0,                            0x1008ff12,spawn,          SHCMD("pamixer --toggle-mute; pkill -RTMIN+22 dwmblocks>
+    { 0,                            0x1008FF16,spawn,          {.v = playerpreviouscmd } },
+    { 0,                            0x1008FF17,spawn,          {.v = playernextcmd } },
+    { 0,                            0x1008FF14,spawn,          {.v = playerpausecmd } },
+    { 0,                            0x1008FF02,spawn,          SHCMD("brightness set +10%; pkill -RTMIN+21 dwmblocks")>
+    { 0,                            0x1008FF03,spawn,          SHCMD("brightness set 10%-; pkill -RTMIN+21 dwmblocks")>
+    { MODKEY,                       XK_x,      spawn,          SHCMD("import ~/Pictures/screenshots/screenshot-$(date >
+    { MODKEY,                       XK_b,      togglebar,      {0} },
+    { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+    { MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+    { MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = +1 } },
+    { MODKEY|ShiftMask,             XK_d,      incnmaster,     {.i = -1 } },
+    { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
+    { MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+    { MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
+    { MODKEY|ShiftMask,             XK_Tab,    view,           {0} },
+    { MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
+    { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+    { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+    { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+    { MODKEY,                       XK_space,  setlayout,      {0} },
+    { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+    { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
+    { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
+    { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
+    { MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+    { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
+    { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+    { ControlMask,                  XK_Right,  shiftview,      { .i = +1 } },
+    { ControlMask,                  XK_Left,   shiftview,      { .i = -1 } },
+    TAGKEYS(                        XK_1,                      0)
+    TAGKEYS(                        XK_2,                      1)
+    TAGKEYS(                        XK_3,                      2)
+    TAGKEYS(                        XK_4,                      3)
+    TAGKEYS(                        XK_5,                      4)
+    TAGKEYS(                        XK_6,                      5)
+    TAGKEYS(                        XK_7,                      6)
+    TAGKEYS(                        XK_8,                      7)
+    TAGKEYS(                        XK_9,                      8)
+    { MODKEY|ShiftMask,             XK_e,      quit,           {0} },
 };
 
 /* button definitions */

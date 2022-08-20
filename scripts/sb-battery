@@ -17,27 +17,27 @@ for battery in /sys/class/power_supply/BAT?*; do
 
 	capacity="$(cat "$battery/capacity" 2>&1)"
 	if [ "$capacity" -gt 90 ]; then
-		status=""
+		status="^c#22A033^^d^"
 	elif [ "$capacity" -gt 60 ]; then
-		status=""
+		status="^c#22A033^^d^"
 	elif [ "$capacity" -gt 40 ]; then
-		status=""
+		status="^c#F0C674^^d^"
 	elif [ "$capacity" -gt 10 ]; then
-		status=""
+		status="^c#C02020^^d^"
 	else
-		status=""
+		status="^c#C02020^^d^"
 	fi
 
 	# Sets up the status and capacity
 	case "$(cat "$battery/status" 2>&1)" in
-		Full) status=" " ;;
+		#Full) status=" " ;;
 		Discharging)
 			if [ "$capacity" -le 20 ]; then
 				status="$status"
 				color=1
 			fi
 			;;
-		Charging) status=" $status" ;;
+	    Full | Charging) status=" $status" ;;
 		"Not charging") status=" $status " ;;
 		Unknown) status="屢 " ;;
 		*) exit 1 ;;
