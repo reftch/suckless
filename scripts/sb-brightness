@@ -3,7 +3,7 @@
 sleep 0.1
 brightness=$(cat /sys/class/backlight/intel_backlight/actual_brightness)
 
-status="^c#F0C674^  ^d^"
+status="^c#F0C674^ ^d^"
 #if [ "$brightness" -eq 0 ]; then
 #    status=""
 #else
