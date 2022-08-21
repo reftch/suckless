@@ -1,6 +1,7 @@
 #!/bin/sh
 
 xset s 300 300
+dunst &
 picom -f &
 nitrogen --restore &
 
