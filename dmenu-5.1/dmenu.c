@@ -626,8 +626,7 @@ setup(void)
 	utf8 = XInternAtom(dpy, "UTF8_STRING", False);
 
 	/* calculate menu geometry */
-	bh = drw->fonts->h + 2;
-	bh = MAX(bh,lineheight);	/* make a menu line AT LEAST 'lineheight' tall */
+	bh = drw->fonts->h + 2 + vertpadbar*2; 
 	lines = MAX(lines, 0);
 	mh = (lines + 1) * bh;
 #ifdef XINERAMA
@@ -737,8 +736,8 @@ main(int argc, char *argv[])
 		else if (!strcmp(argv[i], "-l"))   /* number of lines in vertical list */
 			lines = atoi(argv[++i]);
 		else if (!strcmp(argv[i], "-h")) { /* minimum height of one menu line */
-			lineheight = atoi(argv[++i]);
-			lineheight = MAX(lineheight, min_lineheight);
+			vertpadbar = atoi(argv[++i]);
+			vertpadbar = MAX(vertpadbar, min_lineheight);
 		}
 		else if (!strcmp(argv[i], "-m"))
 			mon = atoi(argv[++i]);

@@ -16,7 +16,7 @@ static const char *colors[SchemeLast][2] = {
 	[SchemeOut] = { "#000000", "#00ffff" },
 };
 
-static unsigned int lineheight = 38;
+static unsigned int lineheight = 30;
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
 static unsigned int lines      = 15;
 
