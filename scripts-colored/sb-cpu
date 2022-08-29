@@ -1,6 +1,6 @@
 #!/bin/sh
 
-temperature=$(sensors | awk '/Core 0/ {print " "  $3}') 
+temperature=$(sensors | awk '/Core 0/ {print "^c#C02020^^d^ "  $3}') 
 rpm=$(sensors | awk '/fan1/ {print ", " $2}')
 
 echo "$temperature$rpm"
