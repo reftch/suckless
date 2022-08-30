@@ -24,3 +24,7 @@ static unsigned int min_lineheight = 8;
  * for example: " /?\"&[]"
  */
 static const char worddelimiters[] = " ";
+
+static const int vertpad            = 5;        /* vertical padding of bar */
+static const int sidepad            = 5;        /* horizontal padding of bar */
+
