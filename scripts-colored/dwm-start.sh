@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Set dispaly timer
-xset s off
+xset s 3600 3600
 # Notification-daemon 
 dunst &
 # Compositor
