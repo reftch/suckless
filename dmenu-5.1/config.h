@@ -17,6 +17,7 @@ static const char *colors[SchemeLast][2] = {
 static unsigned int lines      = 0;
 /* -h option; minimum height of a menu line */
 static unsigned int vertpadbar = 4;
+static unsigned int horizpadbar = 5;
 static unsigned int min_lineheight = 8;
 
 /*
