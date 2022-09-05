@@ -16,4 +16,4 @@ else
 	icon=" "
 fi
 
-echo "$icon$vol%"
+echo "^c#D3869B^$icon^d^$vol%"

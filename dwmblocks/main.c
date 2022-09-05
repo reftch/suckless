@@ -288,7 +288,18 @@ void init() {
 	setupSignals();
 }
 
-int main(const int argc, const char* argv[]) {
+void delay(int milliseconds)
+{
+    long pause;
+    clock_t now,then;
+
+    pause = milliseconds*(CLOCKS_PER_SEC/1000);
+    now = then = clock();
+    while( (now-then) < pause )
+        now = clock();
+}
+
+int main(const int argc, const char* argv[]) {	
 	if (setupX()) {
 		fprintf(stderr, "dwmblocks: Failed to open display\n");
 		return 1;

@@ -24,6 +24,8 @@ install:
 	chmod 755 ${DESTDIR}${PREFIX}/bin/sb-internet
 	cp -f sb-brightness ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/sb-brightness
+	cp -f sb-pacpackages ${DESTDIR}${PREFIX}/bin
+	chmod 755 ${DESTDIR}${PREFIX}/bin/sb-pacpackages
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm-start.sh
@@ -35,5 +37,6 @@ uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/sb-cpu-usage
 	rm -f ${DESTDIR}${PREFIX}/bin/sb-internet
 	rm -f ${DESTDIR}${PREFIX}/bin/sb-brightness
+	rm -f ${DESTDIR}${PREFIX}/bin/sb-pacpackages
 
 .PHONY: install uninstall

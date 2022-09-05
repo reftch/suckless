@@ -1,5 +1,5 @@
 #!/bin/sh
 
-usage=$(top -bn1 | grep Cpu | awk '{print " " $2 }')%
+usage=$(top -bn1 | grep Cpu | awk '{print "^c#D65D0E^ ^d^" $2 }')%
 
 echo "$usage"

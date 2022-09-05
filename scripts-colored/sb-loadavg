@@ -1,9 +1,0 @@
-#!/bin/sh
-
-threshold=5
-load=$(cut -d ' ' -f1 /proc/loadavg)
-
-if [ 1 -eq $(echo "$load > $threshold" | bc) ]; then
-	color=1
-fi
-echo " $load%" $color
