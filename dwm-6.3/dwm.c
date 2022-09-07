@@ -734,16 +734,16 @@ drawstatusbar(Monitor *m, int bh, char* stext) {
 		isCode = 0;
 	text = p;
 
-	w += horizpadbar * 4 + sp; /* horizpadbar (px) padding on both sides */
+	w += horizpadbar * 2 + sp; /* horizpadbar (px) padding on both sides */
 	ret = x = m->ww - w;
 
 	drw_setscheme(drw, scheme[LENGTH(colors)]);
 	drw->scheme[ColFg] = scheme[SchemeNorm][ColFg];
 	drw->scheme[ColBg] = scheme[SchemeNorm][ColBg];
-	drw_rect(drw, x, 0, w, bh, 1, 1);
+	drw_rect(drw, x - horizpadbar, 0, w, bh, 1, 1);
 
 	/* initial offset */
-	x += horizpadbar * 2 - sp;
+	x += horizpadbar - sp;
 	
 	/* process status text */
 	i = -1;
