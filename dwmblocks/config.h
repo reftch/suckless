@@ -1,6 +1,6 @@
 #define CMDLENGTH 44
 #define DELIMITER " | "
-/*#define CLICKABLE_BLOCKS */
+#define CLICKABLE_BLOCKS 
 
 const Block blocks[] = {
   BLOCK("sb-brightness",   0,    21),
@@ -9,6 +9,6 @@ const Block blocks[] = {
   BLOCK("sb-cpu-usage",    1,    25),
   BLOCK("sb-cpu",         10,    26),
   BLOCK("sb-internet",    30,    27),
-  BLOCK("sb-battery",  0,    28),
+  BLOCK("sb-battery",  	  30,    28),
   BLOCK("sb-date",        10,    30)
 };

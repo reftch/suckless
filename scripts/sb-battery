@@ -10,6 +10,11 @@ notify() {
 	notify-send -i battery -h string:x-canonical-private-synchronous:battery "Battery" "$1" -t 4000
 }
 
+case $BLOCK_BUTTON in
+	1) notify "$(acpi -b | awk -F ': |, ' '{printf "%s\n%s\n", $2, $4}')" ;;
+	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
 # Loop through all attached batteries and format the info
 for battery in /sys/class/power_supply/BAT?*; do
 	# If non-first battery, print a space separator.
