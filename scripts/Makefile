@@ -26,6 +26,8 @@ install:
 	chmod 755 ${DESTDIR}${PREFIX}/bin/sb-brightness
 	cp -f sb-pacpackages ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/sb-pacpackages
+	cp -f sb-forecast ${DESTDIR}${PREFIX}/bin
+	chmod 755 ${DESTDIR}${PREFIX}/bin/sb-forecast
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm-start.sh
@@ -38,5 +40,6 @@ uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/sb-internet
 	rm -f ${DESTDIR}${PREFIX}/bin/sb-brightness
 	rm -f ${DESTDIR}${PREFIX}/bin/sb-pacpackages
+	rm -f ${DESTDIR}${PREFIX}/bin/sb-forecast
 
 .PHONY: install uninstall

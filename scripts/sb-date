@@ -1,4 +1,12 @@
 #!/bin/sh
 
-echo "^c#D3869B^^d^ $(date '+%b %d (%a) %H:%M')"
+case $BLOCK_BUTTON in
+    1) 	notify-send -i calendar -h string:x-canonical-private-synchronous:date "This Month" \
+        "$(cal --color=always)" \
+        # && notify-send "Appointments" "$(calcurse -d3)"
+    ;;
+	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+echo "^c#D3869B^^d^ $(date '+%b %d (%a) %H:%M')"
 

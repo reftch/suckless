@@ -3,6 +3,7 @@
 #define CLICKABLE_BLOCKS 
 
 const Block blocks[] = {
+  BLOCK("sb-forecast", 18000,	  5),
   BLOCK("sb-brightness",   0,    21),
   BLOCK("sb-volume",       0,    22),
   BLOCK("sb-memory",      10,    23),
